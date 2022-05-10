@@ -1,5 +1,7 @@
+import 'package:chat_flutter/screens/chat_screen.dart';
+import 'package:chat_flutter/screens/login_screen.dart';
+import 'package:chat_flutter/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 
 import 'screens/welcome_screen.dart';
 
@@ -10,13 +12,16 @@ class ChatApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      theme: ThemeData.dark().copyWith(
-        textTheme: const TextTheme(
-          bodyText1: TextStyle(color: Colors.black54),
-        ),
-      ),
-      home: const WelcomeScreen(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Chat App',
+      initialRoute: WelcomeScreen.id,
+      routes: {
+        WelcomeScreen.id: (context) => const WelcomeScreen(),
+        LoginScreen.id: (context) => const LoginScreen(),
+        RegistrationScreen.id: (context) => const RegistrationScreen(),
+        ChatScreen.id: (context) => const ChatScreen(),
+      },
     );
   }
 }
